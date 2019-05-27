@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 // custom route
 $route['register'] = 'user/register';
 $route['about'] = 'home/about';
+$route['cart'] = 'home/cart';

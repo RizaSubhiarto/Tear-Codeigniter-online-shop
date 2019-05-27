@@ -10,4 +10,9 @@ class model_user extends CI_model
     {
         return $this->db->get('store')->result_array();
     }
+    public function get_item()
+    {
+        $hasil = $this->db->get('store');
+        return $hasil->result();
+    }
 }
