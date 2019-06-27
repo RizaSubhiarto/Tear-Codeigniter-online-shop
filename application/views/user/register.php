@@ -9,6 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="180x180" href="<?= base_url(); ?>assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url(); ?>assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(); ?>assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?= base_url(); ?>assets/favicon/site.webmanifest">
+
     <title><?= $title; ?></title>
 
     <!-- Custom fonts for this template-->
@@ -62,6 +69,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="form-label-group">
+                            <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" value="<?= set_value('phone'); ?>">
+                            <label for="phone">Phone number</label>
+                            <?= form_error('phone', '<small class="text-danger pl-3">', '</small>') ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-label-group">
@@ -82,9 +96,9 @@
                 </form>
                 <div class="text-center">
                     <!-- menuju login -->
-                    <a class="d-block small mt-3" href="<?= base_url(); ?>">Login Page</a>
+                    <a class="d-block small mt-3" href="<?= base_url('user'); ?>">Login Page</a>
 
-                    <!-- <a class="d-block small" href="forgot-password.html">Forgot Password?</a> -->
+                    <a class="d-block small mt-3" href="<?= base_url('home'); ?>">Home</a>
                 </div>
             </div>
         </div>

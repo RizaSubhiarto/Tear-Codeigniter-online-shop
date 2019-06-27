@@ -12,9 +12,9 @@ class User extends CI_Controller
     public function index()
     {
 
-        // kalau sudah login, tidak bisa login lagi
+        // kalau sudah login, tidak bisa masuk login
         if ($this->session->userdata('email')) {
-            redirect(base_url('welcome'));
+            redirect(base_url('home'));
         }
 
         // input login
@@ -42,28 +42,30 @@ class User extends CI_Controller
         if ($username) {
             if (password_verify($password, $username['password'])) {
                 $data = [
+                    'userid' => $username['userid'],
                     'email' => $username['email'],
                     'roleid' => $username['roleid']
                 ];
                 $this->session->set_userdata($data);
                 if ($username['roleid'] == 1) {
                     redirect(base_url('admin'));
+                } else {
+                    redirect('home');
                 }
-                redirect('home');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password</div>');
-                redirect(base_url());
+                redirect(base_url('user'));
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered</div>');
-            redirect(base_url());
+            redirect(base_url('user'));
         }
     }
 
     // register akun
     public function register()
     {
-        // kalau sudah login, tidak bisa register lagi
+        // kalau sudah login, tidak bisa masuk halaman register
         if ($this->session->userdata('email')) {
             redirect(base_url('home'));
         }
@@ -76,6 +78,7 @@ class User extends CI_Controller
             'min_length' => 'Password is too weak!'
         ]);
         $this->form_validation->set_rules('adress', 'Adress', 'required|trim|min_length[3]');
+        $this->form_validation->set_rules('phone', 'Phone', 'required|trim|integer|max_length[20]');
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[3]|matches[password1]');
 
         // form validation
@@ -90,6 +93,7 @@ class User extends CI_Controller
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'adress' => htmlspecialchars($this->input->post('adress', true)),
+                'phone' => htmlspecialchars($this->input->post('phone', true)),
                 'image' => 'default.png',
                 'roleid' => 2
 
@@ -97,16 +101,14 @@ class User extends CI_Controller
 
             $this->db->insert('usertable', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulations! Your account has been created</div>');
-            redirect(base_url());
+            redirect(base_url('user'));
         }
     }
 
     // logout
     public function logout()
     {
-        $this->session->unset_userdata('email');
-        $this->session->unset_userdata('roleid');
-
+        $this->session->sess_destroy();
         redirect(base_url());
     }
 

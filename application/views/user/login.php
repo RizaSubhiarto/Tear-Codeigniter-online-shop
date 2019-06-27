@@ -9,6 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="180x180" href="<?= base_url(); ?>assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url(); ?>assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(); ?>assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?= base_url(); ?>assets/favicon/site.webmanifest">
+
     <title><?= $title; ?></title>
 
     <!-- Custom fonts for this template-->
@@ -29,13 +36,12 @@
 </head>
 
 <body class="bg-dark">
-
     <div class="container">
         <div class="card card-login mx-auto mt-5">
             <div class="card-header">Login</div>
             <div class="card-body">
                 <?= $this->session->flashdata('message'); ?>
-                <form method="post" action="<?= base_url(); ?>">
+                <form method="post" action="<?= base_url('user'); ?>">
                     <div class="form-group">
                         <div class="form-label-group">
                             <input type="text" id="email" name="email" class="form-control" placeholder="Email address" value="<?= set_value('email'); ?>">
@@ -56,7 +62,7 @@
                     <!-- menuju register -->
                     <a class="d-block small mt-3" href="<?= base_url('register'); ?>">Register an Account</a>
 
-                    <!-- <a class="d-block small" href="forgot-password.html">Forgot Password?</a> -->
+                    <a class="d-block small mt-3" href="<?= base_url('home'); ?>">Home</a>
                 </div>
             </div>
         </div>

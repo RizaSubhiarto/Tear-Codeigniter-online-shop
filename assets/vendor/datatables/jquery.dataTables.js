@@ -12270,7 +12270,7 @@
 		 *        "columnDefs": [ {
 		 *          "targets": [3],
 		 *          "createdCell": function (td, cellData, rowData, row, col) {
-		 *            if ( cellData == "1.7" ) {
+		 *            if ( cellData == "1.9" ) {
 		 *              $(td).css('color', 'blue')
 		 *            }
 		 *          }

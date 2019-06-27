@@ -3,6 +3,7 @@
         Edit profile
     </div>
     <div class="card-body p-5">
+        <?= $this->session->flashdata('message'); ?>
         <?= form_open_multipart('profile/edit'); ?>
         <div class="form-group row">
             <label for="email">Email</label>
@@ -15,6 +16,10 @@
         <div class="form-group row">
             <label for="adress">Home adress</label>
             <input type="text" class="form-control" id="adress" name="adress" value="<?= $users['adress']; ?>">
+        </div>
+        <div class="form-group row">
+            <label for="phone">Phone number</label>
+            <input type="text" class="form-control" id="phone" name="phone" value="<?= $users['phone']; ?>">
         </div>
         <div class="form-group row">
             <label for="image">Image</label><br>

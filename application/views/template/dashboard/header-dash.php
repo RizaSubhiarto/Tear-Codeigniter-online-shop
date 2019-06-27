@@ -9,6 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="180x180" href="<?= base_url(); ?>assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url(); ?>assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(); ?>assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?= base_url(); ?>assets/favicon/site.webmanifest">
+
     <title><?= $title; ?></title>
 
     <!-- Custom fonts for this template-->
@@ -20,15 +27,13 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url(); ?>assets/css/sb-admin.css" rel="stylesheet">
 
-    <script src="<?= base_url() ?>assets/js/ckeditor.js"></script>
-
 </head>
 
 <body id="page-top">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1" href="<?= base_url('home'); ?>">Tear</a>
+        <a class="navbar-brand mr-1" href="<?= base_url('home'); ?>"><i class="fas fa-fw fa-store"></i> Tear</a>
 
         <button class="btn btn-link btn-sm text-white order-0 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
@@ -44,12 +49,12 @@
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="<?= base_url('member/user'); ?>">
+                    <a class="dropdown-item" href="<?= base_url('profile'); ?>">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?= base_url('user/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
+                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
                     </a>

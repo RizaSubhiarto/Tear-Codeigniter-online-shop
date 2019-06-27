@@ -7,17 +7,29 @@ class Profile extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->model('model_user');
+        $this->load->model('model_invoice');
+        mario();
     }
+
+    // tampilan profile
     public function index()
     {
+        $role = $this->session->userdata('roleid');
         $data['users'] = $this->db->get_where('usertable', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Tear | Profile';
+        if ($role == 1) {
+            $data['admin'] = '<a class="btn btn-primary mx-auto" href="admin">Admin</a>';
+        } else {
+            $data['admin'] = '';
+        }
         $this->load->view('template/common/header', $data);
         $this->load->view('template/common/jumbotron');
         $this->load->view('main/profile', $data);
         $this->load->view('template/common/footer');
     }
 
+    // mengedit isi profile
     public function edit()
     {
 
@@ -36,6 +48,8 @@ class Profile extends CI_Controller
             $username = $this->input->post('username');
             $email = $this->input->post('email');
             $adress = $this->input->post('adress');
+            $phone = $this->input->post('phone');
+
 
             $upload_image = $_FILES['image']['name'];
             if ($upload_image) {
@@ -59,6 +73,7 @@ class Profile extends CI_Controller
 
             $this->db->set('username', $username);
             $this->db->set('adress', $adress);
+            $this->db->set('phone', $phone);
             $this->db->where('email', $email);
             $this->db->update('usertable');
 

@@ -9,7 +9,7 @@
     <!-- /.container -->
 </footer>
 <a class="scroll-to-top rounded" href="#page-top">
-    <i class="far fa-angle-up"></i>
+    <i class="far fa-3x fa-arrow-alt-circle-up"></i>
 </a>
 
 <!-- Bootstrap core JavaScript-->

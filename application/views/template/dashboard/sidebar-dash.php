@@ -13,6 +13,18 @@
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Item list</span>
         </a>
+        <a class="nav-link" href="<?= base_url('admin/invoice'); ?>">
+            <i class="fas fa-fw fa-file-invoice"></i>
+            <span>Invoice</span>
+        </a>
+        <a class="nav-link" href="<?= base_url('admin/payment'); ?>">
+            <i class="fas fa-fw fa-check-circle"></i>
+            <span>Payment</span>
+        </a>
+        <a class="nav-link" href="<?= base_url('admin/laporan'); ?>">
+            <i class="fas fa-fw fa-align-justify"></i>
+            <span>Laporan</span>
+        </a>
         <a class="nav-link" href="<?= base_url('user/logout'); ?>">
             <i class="fas fa-fw fa-sign-out-alt"></i>
             <span>Logout</span>

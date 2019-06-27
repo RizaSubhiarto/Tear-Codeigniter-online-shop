@@ -18,7 +18,7 @@
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
+    <i class="far fa-3x fa-arrow-alt-circle-up"></i>
 </a>
 
 
